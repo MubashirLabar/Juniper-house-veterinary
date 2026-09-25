@@ -1,0 +1,253 @@
+/*
+ * Juniper House — design tokens
+ *
+ * Everything the landing page and /juniper-house/style use comes from here.
+ * The design was drawn at two artboards, 390 (mobile) and 1440 (desktop).
+ * Type and spacing interpolate between those two points so tablet and
+ * laptop widths get the in-between value rather than a jump:
+ *
+ *   fluid(min, max) = clamp(min, min + (max - min) * (100vw - 390px) / 1050, max)
+ *
+ * Keep tokens.ts in sync — it documents these values on the style page.
+ */
+
+@theme {
+  /* ── Color ─────────────────────────────────────────────────── */
+  --color-juniper: #23372f; /* primary dark: text, dark bands, footer */
+  --color-juniper-700: #3a5046; /* surfaces on dark */
+  --color-juniper-800: #2e463c; /* embossed wordmark on dark */
+  --color-juniper-900: #1a2a24; /* pressed state on dark buttons */
+
+  --color-linen: #f3ede3; /* page ground — never pure white */
+  --color-linen-50: #faf6ef; /* raised bands and cards */
+  --color-linen-200: #e6dccb; /* band edges, pressed light button */
+  --color-linen-300: #dcd2c3; /* card and header borders */
+
+  --color-terracotta: #b5654a; /* large type (24px+), icons, berries */
+  --color-terracotta-ink: #9a4f37; /* buttons, links, eyebrows — AA on linen */
+  --color-terracotta-deep: #7f3f2b; /* hover */
+  --color-terracotta-pressed: #6c3524;
+
+  --color-clay: #d9957a; /* accent on juniper */
+  --color-clay-50: #f6eae2; /* emergency callout ground */
+  --color-clay-tint: #ead8cb; /* house-call band */
+  --color-clay-300: #d2b5a3; /* photo ground */
+  --color-clay-400: #c79b85; /* borders on clay */
+  --color-blush: #e3cbbc; /* photo ground */
+
+  --color-sand: #d6cbb8; /* photo ground */
+  --color-sand-100: #e3dccd; /* seasonal card */
+  --color-sage: #c3cdb9; /* photo ground */
+  --color-sage-50: #e9eee4; /* message bubble */
+  --color-sage-100: #d8ded3; /* secondary text on juniper */
+  --color-sage-200: #c6cfc2; /* body text on juniper */
+  --color-sage-300: #b9c4b6; /* fine print on juniper */
+
+  --color-moss: #45514a; /* body copy */
+  --color-moss-muted: #56625b; /* captions, meta */
+  --color-bark: #45403a; /* body copy on clay */
+  --color-bark-muted: #5e4a3f; /* captions on clay */
+  --color-hairline: #cbbfae; /* rules and borders */
+
+  /* ── Type ──────────────────────────────────────────────────── */
+  --text-display: clamp(2.75rem, calc(2.75rem + 32 * (100vw - 390px) / 1050), 4.75rem);
+  --text-display--line-height: 1.02;
+  --text-feature: clamp(2.375rem, calc(2.375rem + 22 * (100vw - 390px) / 1050), 3.75rem);
+  --text-feature--line-height: 1.04;
+  --text-h1: clamp(2.125rem, calc(2.125rem + 20 * (100vw - 390px) / 1050), 3.375rem);
+  --text-h1--line-height: 1.08;
+  --text-title: clamp(2rem, calc(2rem + 16 * (100vw - 390px) / 1050), 3rem);
+  --text-title--line-height: 1.08;
+  --text-h2: clamp(1.875rem, calc(1.875rem + 12 * (100vw - 390px) / 1050), 2.625rem);
+  --text-h2--line-height: 1.1;
+  --text-statement: clamp(1.625rem, calc(1.625rem + 8 * (100vw - 390px) / 1050), 2.125rem);
+  --text-statement--line-height: 1.2;
+  --text-quote: clamp(1.625rem, calc(1.625rem + 5 * (100vw - 390px) / 1050), 1.9375rem);
+  --text-quote--line-height: 1.3;
+  --text-h3: clamp(1.3125rem, calc(1.3125rem + 5 * (100vw - 390px) / 1050), 1.625rem);
+  --text-h3--line-height: 1.2;
+  --text-numeral: clamp(2.5rem, calc(2.5rem + 24 * (100vw - 390px) / 1050), 4rem);
+  --text-numeral--line-height: 1;
+  --text-lead: clamp(1.0625rem, calc(1.0625rem + 3 * (100vw - 390px) / 1050), 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-intro: 1.0625rem;
+  --text-intro--line-height: 1.65;
+  --text-body: clamp(0.90625rem, calc(0.90625rem + 1.5 * (100vw - 390px) / 1050), 1rem);
+  --text-body--line-height: 1.6;
+  --text-eyebrow: clamp(0.75rem, calc(0.75rem + 1 * (100vw - 390px) / 1050), 0.8125rem);
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.14em;
+
+  --font-weight-book: 350;
+  --font-weight-medium-serif: 450;
+
+  /* ── Breakpoints ───────────────────────────────────────────── */
+  /* Between xl (1280) and the 1440 artboard: where the full header and hero trust row fit. */
+  --breakpoint-wide: 85rem;
+
+  /* ── Space & shape ─────────────────────────────────────────── */
+  --spacing-gutter: clamp(1.5rem, calc(1.5rem + 96 * (100vw - 390px) / 1050), 7.5rem);
+  --spacing-section: clamp(4rem, calc(4rem + 40 * (100vw - 390px) / 1050), 6.5rem);
+  --container-page: 90rem; /* 1440 → 1200 content at 120 gutters */
+
+  --radius-panel: clamp(1.5rem, calc(1.5rem + 4 * (100vw - 390px) / 1050), 1.75rem);
+  --radius-card: 1.25rem;
+  --radius-field: 0.875rem;
+
+  --shadow-float: 0 18px 40px -18px rgb(35 55 47 / 0.35);
+}
+
+@theme inline {
+  --font-serif: var(--font-newsreader, Georgia), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-instrument, system-ui), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains, ui-monospace), ui-monospace, Menlo, monospace;
+}
+
+/* Interaction states that the style guide can also pin open with data-state. */
+@custom-variant hovered {
+  @media (hover: hover) {
+    &:hover {
+      @slot;
+    }
+  }
+  &[data-state="hover"] {
+    @slot;
+  }
+}
+@custom-variant pressed {
+  &:active {
+    @slot;
+  }
+  &[data-state="pressed"] {
+    @slot;
+  }
+}
+
+/* Centered 1200px content column with fluid page gutters. */
+@utility page-container {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility eyebrow {
+  font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@utility serif {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-weight: var(--font-weight-book);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  body:has([data-brand="juniper-house"]) {
+    background-color: var(--color-linen);
+  }
+
+  [data-brand="juniper-house"] {
+    --header-h: 68px;
+    background-color: var(--color-linen);
+    color: var(--color-juniper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @media (width >= 48rem) {
+      --header-h: 80px;
+    }
+    @media (width >= 80rem) {
+      --header-h: 96px;
+    }
+
+    & p {
+      text-wrap: pretty;
+    }
+
+    & [id] {
+      scroll-margin-top: var(--header-h);
+    }
+
+    & :focus-visible {
+      outline: 2px solid var(--color-terracotta-ink);
+      outline-offset: 3px;
+    }
+
+    & .on-dark :focus-visible {
+      outline-color: var(--color-clay);
+    }
+
+    & .menu-sheet[open] {
+      animation: menu-in 280ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    & ::selection {
+      background-color: var(--color-clay-tint);
+      color: var(--color-juniper);
+    }
+  }
+}
+
+/*
+ * Hero entrance. CSS rather than JS so the headline paints with the first
+ * frame (no waiting for hydration). Each piece sets its own --delay.
+ */
+@utility intro-rise {
+  animation: intro-rise 1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+@utility intro-arch {
+  animation: intro-arch 1.4s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+@utility intro-pop {
+  animation: intro-pop 1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+@keyframes intro-arch {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+}
+@keyframes intro-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.94);
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand="juniper-house"] *,
+  [data-brand="juniper-house"] *::before,
+  [data-brand="juniper-house"] *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}
